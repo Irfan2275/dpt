@@ -33,6 +33,4 @@ class ApiDptController extends Controller
     
             return DptResource::collection($dpt);
     }
-
-    
 }
