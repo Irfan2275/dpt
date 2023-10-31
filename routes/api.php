@@ -33,5 +33,6 @@ Route::get('/provinsi/{nama_dagri_provinsi}',[ApiProvinsiController::class, 'sho
 });
 
 Route::get('/dpt/{kode_desa_kelurahan}',[ApiDptController::class, 'index']);
+Route::get('/dpt/kecamatan/{kode_kecamatan}',[ApiDptController::class, 'show']);
 
 

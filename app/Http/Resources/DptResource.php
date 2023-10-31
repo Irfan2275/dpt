@@ -18,7 +18,7 @@ class DptResource extends JsonResource
             'uuid' =>$this->id,
             'Kecamatan' =>  $this->kecamatan->nama_kecamatan,
             'Desa/Kelurahan' => $this->desa_kelurahan,
-            'TPS' => $this->tps->nama_tps,
+            'TPS' => $this->tps ? $this->tps->nama_tps : '',
             'Nama' => $this->nama,
             'Usia' => $this->usia,
             'status' => $this -> status

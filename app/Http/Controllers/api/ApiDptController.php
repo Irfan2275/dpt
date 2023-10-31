@@ -23,7 +23,7 @@ class ApiDptController extends Controller
         return DptResource::collection($dpt);
     }
 
-    public function show ($kode_kecamatan)
+    public function show($kode_kecamatan)
     {
         $dpt = Dpt::where('kode_kecamatan', $kode_kecamatan)->paginate(15);
 

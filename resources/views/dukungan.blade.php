@@ -16,10 +16,22 @@
         
         <div class="form-group">
             <label class="font-weight-bold">ID</label>
-            <input type="text" class="form-control @error('id') is-invalid @enderror" name="id" value="{{ old('id', $dpt->id) }}" placeholder="Masukkan Nama Provinsi">
+            <input type="text" class="form-control @error('id') is-invalid @enderror" name="id" value="{{ old('id', $dpt->id) }}" placeholder="Masukkan Nama Provinsi" readonly>
         
             <!-- error message untuk title -->
             @error('id')
+                <div class="alert alert-danger mt-2">
+                    {{ $message }}
+                </div>
+            @enderror
+        </div>
+        
+        <div class="form-group">
+            <label class="font-weight-bold">Nama</label>
+            <input type="text" class="form-control @error('nama') is-invalid @enderror" name="nama" value="{{ old('nama', $dpt->nama) }}" placeholder="Masukkan Nama Provinsi">
+        
+            <!-- error message untuk title -->
+            @error('nama')
                 <div class="alert alert-danger mt-2">
                     {{ $message }}
                 </div>
