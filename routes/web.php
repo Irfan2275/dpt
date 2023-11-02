@@ -3,6 +3,7 @@
 use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DptController;
+use App\Http\Controllers\OrmasController;
 use App\Http\Controllers\ProvinsiController;
 use App\Http\Controllers\TpsController;
 use App\Http\Controllers\WilayahController;
@@ -22,7 +23,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/home',[DashboardController::class, 'index']);
+Route::get('/home',[DashboardController::class, 'index'])->name('home');;
+Route::get('/dpt/{kode_kecamatan}/{nama_kecamatan}', [DashboardController::class,'showDptByKecamatan'])->name('dpt.kecamatan');
 Route::get('/dpt',[DptController::class, 'index'])->name('dpt.index');
 Route::get('/dpt-edit/{id}', [DptController::class, 'edit'])->name('dpt.edit');
 Route::put('/dpt-edit/{id}', [DptController::class,'update'])->name('dpt.update');
@@ -34,3 +36,4 @@ Route::get('/kecamatan/{kode_kecamatan}',[ProvinsiController::class, 'desakel'])
 Route::get('/deskel/{kode_desa_kelurahan}',[ProvinsiController::class, 'tps'])->name('provinsi.tps');
 Route::get('/tps',[TpsController::class, 'index']);
 Route::get('/wilayah',[WilayahController::class, 'index']);
+Route::get('/ormas',[OrmasController::class, 'index']);

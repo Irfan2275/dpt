@@ -95,9 +95,78 @@ rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCE
       </div>
 
       <h2> </h2>
-      <div class="table-responsive">
+      {{-- <div class="table-responsive">
         <table class="table table-striped table-sm">
           <h1 class="h2" style="text-align: center; font-size: 10em;">MASIH KOSONG FAN !!!</h1>
+          <thead>
+            <tr>
+                <th>Kode Kecamatan</th>
+                <th>Jumlah DPT</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach($dptsByKecamatan as $dptData)
+                <tr>
+                    <td>{{ $dptByKecamatan->kode_kecamatan }}</td>
+                    <td>{{ $dptByKecamatan->jumlah_dpt }}</td>
+                </tr>
+            @endforeach
+        </tbody>
+
+        <div class="card">
+          <div class="card-body">
+              <div class="d-flex justify-content-between" style="position: relative;">
+                  <!-- ... elemen lain yang Anda miliki ... -->
+  
+                  <!-- Kartu untuk jumlah DPT masing-masing kecamatan -->
+                  @foreach ($dptsByKecamatan as $dptByKecamatan)
+                      <div class="card">
+                          <div class="card-body">
+                              <h5 class="card-title">Kode Kecamatan: {{ $dptByKecamatan->kode_kecamatan }}</h5>
+                              <p class="card-text">Jumlah DPT: {{ $dptByKecamatan->jumlah_dpt }}</p>
+                              <a href=" " class="btn btn-primary">Lihat Tabel</a>
+                          </div>
+                      </div>
+                  @endforeach
+              </div>
+          </div>
+      </div>
+  </div> --}}
+
+  <div class="table-responsive">
+    <div class="row">
+        @foreach ($kecamatanData as $data)
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title">Kode Kecamatan: {{ $data['kode_kecamatan'] }}</h5>
+                        <p class="card-text">Nama Kecamatan: {{ $data['nama_kecamatan'] }}</p>
+                        <p class="card-text">Jumlah DPT: {{ $data['jumlah_dpt'] }}</p>
+                        <a href="{{ route('dpt.kecamatan', ['kode_kecamatan' => $data['kode_kecamatan'], 'nama_kecamatan' => $data['nama_kecamatan']]) }}" class="btn btn-primary">Lihat Tabel</a>
+                    </div>
+                </div>
+            </div>
+        @endforeach
+    </div>
+</div>
+<br>
+  <div class="table-responsive">
+    <div class="row">
+        @foreach ($desakelurahanData as $data)
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title">Kode Desa Kelurahan: {{ $data['kode_desa_kelurahan'] }}</h5>
+                        <p class="card-text">Nama Desa Kelurahan: {{ $data['nama_desa_kelurahan'] }}</p>
+                        <p class="card-text">Jumlah DPT: {{ $data['jumlah_dpt'] }}</p>
+                        <a href=" " class="btn btn-primary">Lihat Tabel</a>
+                    </div>
+                </div>
+            </div>
+        @endforeach
+    </div>
+</div>
+
         </table>
       </div>
     </main>
