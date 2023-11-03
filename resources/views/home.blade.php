@@ -19,6 +19,12 @@ rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCE
     body {
       background-color: seashell;
     }
+    .center-iframe {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 80vh; 
+        }
   </style>
   <body>
     
@@ -134,6 +140,9 @@ rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCE
   </div> --}}
 
   <div class="table-responsive">
+    <div class="center-iframe">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2888917.0908590616!2d118.52125084975638!3d0.101521271822572!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2df14710964d9c91%3A0xc4abb01d2fe376d7!2sKalimantan%20Timur!5e0!3m2!1sid!2sid!4v1698979005694!5m2!1sid!2sid" width="900" height="500" style="border:5;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  </div>
     <div class="row">
         @foreach ($kecamatanData as $data)
             <div class="col-md-4">
