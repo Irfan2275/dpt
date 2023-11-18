@@ -13,6 +13,13 @@ return new class extends Migration
     {
         Schema::create('kegiatans', function (Blueprint $table) {
             $table->id();
+            $table->string('nama');
+            $table->text('alamat');
+            $table->string('kode_desa');
+            $table->string('jenis_id')->default('0');
+            $table->string('foto');
+            $table->double('latitude', 10, 7);
+            $table->double('longitude', 10, 7);
             $table->timestamps();
         });
     }

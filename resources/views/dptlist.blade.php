@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Provinsi</title>
+    <title>DPT</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css" rel="stylesheet">
@@ -22,13 +22,17 @@
        
                 <!-- START DATA -->
          <div class="my-3 p-3 bg-body rounded shadow-sm">
-            <h1>Tabel DPT Kecamatan {{ $nama_kecamatan }}</h1>
-            <table class="table table-striped " id="dataTable" style="text-align: center;">
+            <h1>Tabel DPT Desa Kelurahan {{ $nama_desa_kelurahan }}</h1>
+            <table class="table table-striped " id="dataTable" style="text-align: left;">
                 <thead>
                     <tr>
                         <th>No.</th>
                         <th>Nama</th>
                         <th>Jenis Kelamin</th>
+                        <th>Kode kabkot</th>
+                        <th>Kode Desa/Kelurahan</th>
+                        <th>Desa/Kelurahan</th>
+                        <th>TPS</th>
                         <th>Usia</th>
                         <th>Status</th>
                     </tr>
@@ -45,6 +49,10 @@
                                 Perempuan
                             @endif
                             </td>
+                            <td>{{ $dpt->kode_kabupaten_kota }}</td>
+                            <td>{{ $dpt->kode_desa_kelurahan }}</td>
+                            <td>{{ $dpt->desa_kelurahan }}</td>
+                            <td>{{ $dpt->kode_tps }}</td>
                             <td>{{ $dpt->usia }}</td>
                             <td>
                                 @if ($dpt->status === \App\Enums\StatusEnum::BUKAN_PENDUKUNG)

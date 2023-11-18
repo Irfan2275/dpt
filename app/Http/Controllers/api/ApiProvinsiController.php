@@ -22,10 +22,10 @@ class ApiProvinsiController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show($nama_dagri_provinsi)
+    public function show($nama_provinsi)
     {
         //
-        $provinsi = Provinsi::where('nama_dagri_provinsi', $nama_dagri_provinsi)->first();
+        $provinsi = Provinsi::where('nama_provinsi', $nama_provinsi)->first();
 
         if ($provinsi) {
         return ProvinsiResource::collection([$provinsi]);

@@ -62,29 +62,27 @@ class AuthController extends Controller
                 'status'=> false,
                 'message'=> 'Email Dan Password Tidak Sesuai'
             ], 401);
-       } 
-
-       $datauser = User::where('email', $request->email)->first();
-
-       $role = Role::join("user_role", "user_role.role_id", "=", "roles.id")
-            ->join("users", "users.id", "=", "user_role.user_id")
-            ->where('user_id', $datauser->id)
-            ->pluck('roles.role_name')->toArray();
-    if (empty($role)){
-        $role = ["Silahkan Hubungi Admin"];
+       }
+    
+        $datauser = User::where('email', $request->email)->first();
+        $role = Role::join("user_role", "user_role.role_id", "=", "roles.id")
+                ->join("users", "users.id", "=", "user_role.user_id")
+                ->where('user_id', $datauser->id)
+                ->pluck('roles.role_name')->toArray();
+        if (empty($role)){
+            $role = ["Silahkan Hubungi Admin"];
+            return response()->json([
+                'status'=> false,
+                'message'=> 'Silahkan Hubungi Admin',
+            ], 401);
+        }
         return response()->json([
-            'status'=> false,
-            'message'=> 'Silahkan Hubungi Admin',
-        ], 401);
-    }
-      
-       return response()->json([
         'status'=> true,
         'message'=> 'Asik Anda Berhasil Masuk',
-        'token' => $datauser->createToken('api-provinsi')->plainTextToken
+        'token' => $datauser->createToken('api-provinsi', $role)->plainTextToken
         ], 200);
     }
-
+       
     public function logout(Request $request)
     {
         $request->user()->currentAccessToken()->delete();

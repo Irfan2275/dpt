@@ -16,9 +16,9 @@ class DptController extends Controller
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            $dpts = Dpt::select(['id', 'kode_provinsi', 'kode_kabupaten_kota', 'kode_kecamatan', 'kode_desa_kelurahan', 'kode_tps', 'nama', 'jenis_kelamin', 'usia','status'])
+            $dpts = Dpt::select(['id', 'kode_provinsi', 'kode_kabupaten_kota', 'kode_kecamatan', 'kode_desa_kelurahan', 'kode_tps', 'nama', 'jenis_kelamin', 'desa_kelurahan', 'usia','status'])
             ->with('Provinsi');
-    
+
             return DataTables::of($dpts)
             ->addColumn('jenis_kelamin', function ($dpts) {
                 if ($dpts->jenis_kelamin === JenisKelaminEnum::PRIA) {
@@ -40,11 +40,15 @@ class DptController extends Controller
                 return $dpts->Provinsi->nama_provinsi;
         })
 
+        ->addColumn('kode_desa_kelurahan', function ($dpts) {
+                return $dpts->Desa_kelurahan->nama_desa_kelurahan;
+        })
+
         ->addColumn('action', function ($row) {
                 $actionBtn = '<a href="' . route('dpt.edit', ['id' => $row->id]) . '" class="edit btn btn-warning btn-sm">Edit</a> ';
                 return $actionBtn;
         })
-            ->rawColumns(['kode_provinsi','jenis_kelamin', 'status', 'action'])
+            ->rawColumns(['kode_provinsi', 'kode_desa_kelurahan', 'jenis_kelamin', 'status', 'action'])
             ->make();
         }
     

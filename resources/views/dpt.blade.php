@@ -98,6 +98,7 @@
                             <th style="border: 1px solid #9e9a9a; border-radius: 5px;">TPS</th>
                             <th style="border: 1px solid #9e9a9a; border-radius: 5px;">NAMA</th>
                             <th style="border: 1px solid #9e9a9a; border-radius: 5px;">JENIS KELAMIN</th>
+                            <th style="border: 1px solid #9e9a9a; border-radius: 5px;">desa</th>
                             <th style="border: 1px solid #9e9a9a; border-radius: 5px;">USIA</th>
                             {{-- <th style="border: 1px solid #9e9a9a; border-radius: 5px;">RW</th> --}}
                             {{-- <th style="border: 1px solid #9e9a9a; border-radius: 5px;">RT</th> --}}
@@ -138,11 +139,11 @@
                 // { data: 'kode_dapil', name: 'kode_dapil' },
                 { data: 'kode_kabupaten_kota', name: 'kode_kabupaten_kota' },
                 { data: 'kode_kecamatan', name: 'kode_kecamatan' },
-                { data: 'kode_desa_kelurahan', name: 'kode_desa_kelurahan' },
+                { data: 'kode_desa_kelurahan', name: 'kode_desa_kelurahan', searchable: true },
                 { data: 'kode_tps', name: 'kode_tps' },
                 { data: 'nama', name: 'nama' },
                 { data: 'jenis_kelamin', name: 'jenis_kelamin'},
-                // // { data: 'desa_kelurahan', name: 'desa_kelurahan'},
+                { data: 'desa_kelurahan', name: 'desa_kelurahan'},
                  { data: 'usia', name: 'usia'},
                 // { data: 'rw', name: 'rw' },
                 // { data: 'rt', name: 'rt' },
